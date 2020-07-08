@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ name }}'s Housingforecast</title>
+</head>
+<body>
+    <h2>{{ name }}'s Housingforecast</h2>
+    {# 使用 length 过滤器获取 citys 变量的长度 #}
+    <p>{{ citys|length }} Titles</p>
+    <ul>
+        {% for city in citys %}  {# 迭代 citys 变量 #}
+        <li>{{ city.title }} - {{ city.year }}</li>  {# 等同于 movie['title'] #}
+        {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
+    </ul>
+	<img src="images/bird.jpg" alt="吃瓜少女">
+    <footer>
+        <small>&copy; 2020  <a href="https://github.com/mangwu/Housingforecast" target="_blank">Housingforecast</a></small>
+    </footer>
+</body>
+</html>
