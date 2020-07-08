@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ user.name }}'s Watchlist</title>
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% endblock %}
 </head>
 <body>
-
     <h2>
         <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.jpg') }}">
         {{ user.name }}'s Watchlist
@@ -22,7 +21,7 @@
     </nav>
     {% block content %}{% endblock %}
     <footer>
-        <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
-	</footer>
+        <small>&copy; 2020 <a href="https://github.com/mangwu/Housingforecast" target="_blank">HelloFlask</a></small>
+    </footer>
 </body>
 </html>

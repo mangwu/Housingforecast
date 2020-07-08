@@ -56,6 +56,11 @@ def forge():
     db.session.commit()
     click.echo('Done.')
 	
+@app.context_processor
+def inject_user():  # 函数名可以随意修改
+    user = User.query.first()
+    return dict(user=user)  # 需要返回字典，等同于return {'user': user}
+
 class User(db.Model):  # 表名将会是 user（自动生成，小写处理）
     id = db.Column(db.Integer, primary_key=True)  # 主键
     name = db.Column(db.String(20))  # 名字
@@ -84,7 +89,11 @@ def hello():
     return 'Welcome to My Watchlist!'
 @app.route('/index')	
 def index():
-    user = User.query.first()  # 读取用户记录
+    #user = User.query.first()  # 读取用户记录
     movies = Movie.query.all()  # 读取所有电影记录
-    return render_template('index.html', name=name, movies=movies)
+    return render_template('index.html', movies=movies)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 	
